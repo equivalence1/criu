@@ -1817,7 +1817,7 @@ static void finalize_restore(void)
 
 		xfree(ctl);
 
-		if (item->state == TASK_STOPPED)
+		if ((item->state == TASK_STOPPED) || (opts.final_state == TASK_STOPPED))
 			kill(item->pid.real, SIGSTOP);
 	}
 }
